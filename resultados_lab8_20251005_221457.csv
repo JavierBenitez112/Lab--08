@@ -1,0 +1,6 @@
+Ejercicio,Complejidad,Estado,Tiempo (segundos),Error
+Ejercicio 1,O(n² log n),Timeout,40.02713704109192,Excedió el límite de 40 segundos
+Ejercicio 2,O(n),Completado,34.03272247314453,N/A
+Ejercicio 3,O(n²),Timeout,40.121933937072754,Excedió el límite de 40 segundos
+Ejercicio 4,Busqueda Lineal,Completado,1.7865347862243652,N/A
+Ejercicio 5,Verificacion Big-Oh,Completado,2.833395481109619,N/A
