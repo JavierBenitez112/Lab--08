@@ -32,7 +32,7 @@ python main.py
 - Si un ejercicio excede el tiempo, pasa al siguiente automaticamente
 - Muestra resultados en formato de tabla profesional
 - Guarda resultados en archivo CSV
-- Genera graficas automaticamente
+- Genera graficas automaticamente (solo ejercicios 1, 2 y 3)
 - Cada ejercicio muestra sus resultados en formato de tabla (operacion, tiempo, resultado)
 
 ### Ejecutar un ejercicio específico:
@@ -131,17 +131,17 @@ ESTADISTICAS:
 
 ## Graficas Generadas
 
-El programa genera las siguientes graficas:
+El programa genera las siguientes graficas (solo para ejercicios 1, 2 y 3):
 - `ejercicio1_grafica.png` - Tiempo vs tamano de entrada (O(n² log n))
 - `ejercicio2_grafica.png` - Tiempo vs tamano de entrada (O(n))
 - `ejercicio3_grafica.png` - Tiempo vs tamano de entrada (O(n²))
-- `ejercicio4_grafica.png` - Comparacion de casos de busqueda lineal
-- `ejercicio5_grafica.png` - Comparacion n³ vs n! vs operaciones reales
+
+**Nota:** Los ejercicios 4 y 5 no requieren graficas segun las instrucciones originales.
 
 ## Archivos Generados
 
 - `resultados_lab8_AAAAMMDD_HHMMSS.csv` - Resultados exportados en formato CSV
-- `*.png` - Graficas de cada ejercicio
+- `ejercicio1_grafica.png`, `ejercicio2_grafica.png`, `ejercicio3_grafica.png` - Graficas de los ejercicios 1, 2 y 3
 
 ## Formato de Tabla por Ejercicio
 

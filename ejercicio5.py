@@ -153,21 +153,7 @@ def demostrar_programa_a():
     print(df.to_string(index=False))
     print()
     
-    # Crear grafica comparativa
-    plt.figure(figsize=(12, 8))
-    plt.plot(df['n'], df['Operaciones'], 'bo-', label='Operaciones reales', linewidth=2, markersize=8)
-    plt.plot(df['n'], df['n³'], 'ro-', label='n³', linewidth=2, markersize=8)
-    plt.plot(df['n'], df['n!'], 'go-', label='n!', linewidth=2, markersize=8)
-    
-    plt.xlabel('n')
-    plt.ylabel('Numero de operaciones')
-    plt.title('Comparacion: Operaciones reales vs n³ vs n!')
-    plt.yscale('log')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
-    plt.savefig('ejercicio5_grafica.png', dpi=300, bbox_inches='tight')
-    plt.close()  # Cerrar la figura para liberar memoria
+    # El ejercicio 5 no requiere grafica segun las instrucciones originales
     
     return df
 

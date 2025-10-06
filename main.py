@@ -147,7 +147,7 @@ def ejecutar_todos_los_ejercicios():
     
     print("\n" + "=" * 100)
     print("EJECUCION COMPLETADA")
-    print("Las graficas han sido guardadas en archivos PNG")
+    print("Las graficas de los ejercicios 1, 2 y 3 han sido guardadas en archivos PNG")
     print("=" * 100)
     
     return df

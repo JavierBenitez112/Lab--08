@@ -161,23 +161,7 @@ def medir_tiempos_diferentes_casos():
     print(df.to_string(index=False))
     print()
     
-    # Crear grafica
-    plt.figure(figsize=(12, 8))
-    plt.plot(tamanos, df['Mejor Caso'], 'go-', label='Mejor Caso O(1)', linewidth=2, markersize=8)
-    plt.plot(tamanos, df['Caso Promedio'], 'bo-', label='Caso Promedio O(n)', linewidth=2, markersize=8)
-    plt.plot(tamanos, df['Peor Caso (final)'], 'ro-', label='Peor Caso O(n)', linewidth=2, markersize=8)
-    plt.plot(tamanos, df['Peor Caso (no existe)'], 'mo-', label='Peor Caso (no existe) O(n)', linewidth=2, markersize=8)
-    
-    plt.xlabel('Tamano del arreglo (n)')
-    plt.ylabel('Tiempo de ejecucion (segundos)')
-    plt.title('Busqueda Lineal: Comparacion de Casos')
-    plt.xscale('log')
-    plt.yscale('log')
-    plt.legend()
-    plt.grid(True, alpha=0.3)
-    plt.tight_layout()
-    plt.savefig('ejercicio4_grafica.png', dpi=300, bbox_inches='tight')
-    plt.close()  # Cerrar la figura para liberar memoria
+    # El ejercicio 4 no requiere grafica segun las instrucciones originales
     
     return df
 
