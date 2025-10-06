@@ -74,7 +74,7 @@ def ejecutar_todos_los_ejercicios():
     """
     print("=" * 100)
     print("LABORATORIO 8 - ANÁLISIS DE COMPLEJIDAD ALGORÍTMICA")
-    print("EJECUTANDO TODOS LOS EJERCICIOS CON LÍMITE DE 40 SEGUNDOS")
+    print("EJECUTANDO TODOS LOS EJERCICIOS CON LIMITE DE 40 SEGUNDOS")
     print("=" * 100)
     print()
     
@@ -82,8 +82,8 @@ def ejecutar_todos_los_ejercicios():
         ("Ejercicio 1", ejecutar_ejercicio1, "O(n² log n)"),
         ("Ejercicio 2", ejecutar_ejercicio2, "O(n)"),
         ("Ejercicio 3", ejecutar_ejercicio3, "O(n²)"),
-        ("Ejercicio 4", ejecutar_ejercicio4, "Búsqueda Lineal"),
-        ("Ejercicio 5", ejecutar_ejercicio5, "Verificación Big-Oh")
+        ("Ejercicio 4", ejecutar_ejercicio4, "Busqueda Lineal"),
+        ("Ejercicio 5", ejecutar_ejercicio5, "Verificacion Big-Oh")
     ]
     
     # Lista para almacenar resultados
@@ -99,11 +99,10 @@ def ejecutar_todos_los_ejercicios():
         resultado = ejecutar_con_timeout(funcion, nombre, 40)
         
         # Actualizar la línea con el resultado
-        estado_icono = "✅" if resultado['estado'] == 'Completado' else "⏰" if resultado['estado'] == 'Timeout' else "❌"
         tiempo_str = f"{resultado['tiempo']:.2f}" if resultado['tiempo'] > 0 else "0.00"
         error_str = resultado['error'][:28] + "..." if resultado['error'] and len(resultado['error']) > 30 else resultado['error'] or ""
         
-        print(f"{nombre:<15} {complejidad:<20} {estado_icono} {resultado['estado']:<10} {tiempo_str:<12} {error_str:<30}")
+        print(f"{nombre:<15} {complejidad:<20} {resultado['estado']:<12} {tiempo_str:<12} {error_str:<30}")
         
         # Guardar resultado
         resultados.append({
@@ -125,7 +124,7 @@ def ejecutar_todos_los_ejercicios():
     df = pd.DataFrame(resultados)
     
     print("\n" + "=" * 100)
-    print("📊 TABLA COMPLETA DE RESULTADOS")
+    print("TABLA COMPLETA DE RESULTADOS")
     print("=" * 100)
     print(df.to_string(index=False))
     
@@ -134,36 +133,36 @@ def ejecutar_todos_los_ejercicios():
     timeouts = len([r for r in resultados if r['Estado'] == 'Timeout'])
     errores = len([r for r in resultados if r['Estado'] == 'Error'])
     
-    print(f"\n📈 ESTADÍSTICAS:")
-    print(f"   ✅ Ejercicios completados: {completados}/{len(ejercicios)}")
-    print(f"   ⏰ Ejercicios con timeout: {timeouts}/{len(ejercicios)}")
-    print(f"   ❌ Ejercicios con error: {errores}/{len(ejercicios)}")
-    print(f"   ⏱️  Tiempo total de ejecución: {tiempo_total:.2f} segundos")
+    print(f"\nESTADISTICAS:")
+    print(f"   Ejercicios completados: {completados}/{len(ejercicios)}")
+    print(f"   Ejercicios con timeout: {timeouts}/{len(ejercicios)}")
+    print(f"   Ejercicios con error: {errores}/{len(ejercicios)}")
+    print(f"   Tiempo total de ejecucion: {tiempo_total:.2f} segundos")
     
     # Guardar resultados en CSV
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     archivo_csv = f"resultados_lab8_{timestamp}.csv"
     df.to_csv(archivo_csv, index=False)
-    print(f"   💾 Resultados guardados en: {archivo_csv}")
+    print(f"   Resultados guardados en: {archivo_csv}")
     
     print("\n" + "=" * 100)
-    print("🎉 EJECUCIÓN COMPLETADA")
-    print("📊 Las gráficas han sido guardadas en archivos PNG")
+    print("EJECUCION COMPLETADA")
+    print("Las graficas han sido guardadas en archivos PNG")
     print("=" * 100)
     
     return df
 
 def main():
     """
-    Función principal del programa
+    Funcion principal del programa
     """
     try:
         resultados = ejecutar_todos_los_ejercicios()
         return resultados
     except KeyboardInterrupt:
-        print("\n\n⚠️  Programa interrumpido por el usuario.")
+        print("\n\nPrograma interrumpido por el usuario.")
     except Exception as e:
-        print(f"\n❌ Error inesperado: {str(e)}")
+        print(f"\nError inesperado: {str(e)}")
 
 if __name__ == "__main__":
     main()

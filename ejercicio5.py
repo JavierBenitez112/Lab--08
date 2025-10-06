@@ -105,7 +105,7 @@ def demostrar_programa_a():
     """
     Demuestra el comportamiento del programa A(n) con diferentes valores
     """
-    print("=== DEMOSTRACIÓN DEL PROGRAMA A(n) ===")
+    print("=== DEMOSTRACION DEL PROGRAMA A(n) ===")
     
     def A(n):
         atupla = tuple(range(0, n))
@@ -121,11 +121,20 @@ def demostrar_programa_a():
     print()
     
     resultados = []
+    
+    # Crear tabla de resultados en tiempo real
+    print(f"{'n':<5} {'Elementos S':<12} {'Operaciones':<12} {'Tiempo (s)':<12} {'n³':<8} {'n!':<10}")
+    print("-" * 70)
+    
     for n in [3, 4, 5, 6, 7, 8]:
         inicio = time.time()
         elementos_set, operaciones = A(n)
         fin = time.time()
         tiempo = fin - inicio
+        
+        n_factorial = 1
+        for i in range(1, n + 1):
+            n_factorial *= i
         
         resultados.append({
             'n': n,
@@ -133,49 +142,43 @@ def demostrar_programa_a():
             'Operaciones': operaciones,
             'Tiempo (s)': tiempo,
             'n³': n**3,
-            'n!': 1 if n == 0 else n * (1 if n == 1 else n-1 * (1 if n == 2 else n-2 * (1 if n == 3 else n-3 * (1 if n == 4 else n-4 * (1 if n == 5 else n-5 * (1 if n == 6 else n-6 * (1 if n == 7 else n-7)))))))
+            'n!': n_factorial
         })
         
-        print(f"n = {n}:")
-        print(f"  Elementos en S: {elementos_set}")
-        print(f"  Operaciones: {operaciones}")
-        print(f"  Tiempo: {tiempo:.6f}s")
-        print(f"  n³ = {n**3}")
-        print(f"  n! = {resultados[-1]['n!']}")
-        print()
+        print(f"{n:<5} {elementos_set:<12} {operaciones:<12} {tiempo:<12.6f} {n**3:<8} {n_factorial:<10}")
     
     # Crear tabla de resultados
     df = pd.DataFrame(resultados)
-    print("=== TABLA DE RESULTADOS ===")
+    print("\n=== TABLA DE RESULTADOS ===")
     print(df.to_string(index=False))
     print()
     
-    # Crear gráfica comparativa
+    # Crear grafica comparativa
     plt.figure(figsize=(12, 8))
     plt.plot(df['n'], df['Operaciones'], 'bo-', label='Operaciones reales', linewidth=2, markersize=8)
     plt.plot(df['n'], df['n³'], 'ro-', label='n³', linewidth=2, markersize=8)
     plt.plot(df['n'], df['n!'], 'go-', label='n!', linewidth=2, markersize=8)
     
     plt.xlabel('n')
-    plt.ylabel('Número de operaciones')
-    plt.title('Comparación: Operaciones reales vs n³ vs n!')
+    plt.ylabel('Numero de operaciones')
+    plt.title('Comparacion: Operaciones reales vs n³ vs n!')
     plt.yscale('log')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig('ejercicio5_grafica.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    plt.close()  # Cerrar la figura para liberar memoria
     
     return df
 
 def ejecutar_ejercicio5():
     """
-    Función principal para ejecutar el ejercicio 5
+    Funcion principal para ejecutar el ejercicio 5
     """
-    print("EJERCICIO 5 - VERIFICACIÓN DE ENUNCIADOS DE NOTACIÓN BIG-OH")
+    print("EJERCICIO 5 - VERIFICACION DE ENUNCIADOS DE NOTACION BIG-OH")
     print("=" * 70)
     
-    # Análisis de cada enunciado
+    # Analisis de cada enunciado
     analizar_enunciado_a()
     print()
     analizar_enunciado_b()
@@ -183,7 +186,7 @@ def ejecutar_ejercicio5():
     analizar_enunciado_c()
     print()
     
-    # Demostración práctica del programa A(n)
+    # Demostracion practica del programa A(n)
     resultados = demostrar_programa_a()
     
     return resultados

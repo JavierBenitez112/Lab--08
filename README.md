@@ -27,12 +27,13 @@ python main.py
 ```
 
 **Características de main.py:**
-- ✅ Ejecuta los 5 ejercicios secuencialmente
-- ✅ Límite de 40 segundos por ejercicio
-- ✅ Si un ejercicio excede el tiempo, pasa al siguiente automáticamente
-- ✅ Muestra resultados en formato de tabla
-- ✅ Guarda resultados en archivo CSV
-- ✅ Genera gráficas automáticamente
+- Ejecuta los 5 ejercicios secuencialmente
+- Limite de 40 segundos por ejercicio
+- Si un ejercicio excede el tiempo, pasa al siguiente automaticamente
+- Muestra resultados en formato de tabla profesional
+- Guarda resultados en archivo CSV
+- Genera graficas automaticamente
+- Cada ejercicio muestra sus resultados en formato de tabla (operacion, tiempo, resultado)
 
 ### Ejecutar un ejercicio específico:
 ```bash
@@ -81,17 +82,18 @@ python ejercicio5.py
 
 ## Características
 
-- ✅ Análisis teórico detallado de complejidad
-- ✅ Implementación práctica de cada algoritmo
-- ✅ Medición de tiempos de ejecución
-- ✅ Generación de gráficas comparativas
-- ✅ Tablas de resultados en formato profesional
-- ✅ **Límite de tiempo de 40 segundos por ejercicio**
-- ✅ **Timeout automático** - pasa al siguiente ejercicio si excede el tiempo
-- ✅ **Exportación a CSV** de todos los resultados
-- ✅ **Estadísticas completas** de ejecución
-- ✅ **Compatible con Windows** usando threading
-- ✅ Documentación completa
+- Analisis teorico detallado de complejidad
+- Implementacion practica de cada algoritmo
+- Medicion de tiempos de ejecucion
+- Generacion de graficas comparativas
+- Tablas de resultados en formato profesional
+- **Limite de tiempo de 40 segundos por ejercicio**
+- **Timeout automatico** - pasa al siguiente ejercicio si excede el tiempo
+- **Exportacion a CSV** de todos los resultados
+- **Estadisticas completas** de ejecucion
+- **Compatible con Windows** usando threading
+- **Formato de tabla en tiempo real** para cada ejercicio
+- Documentacion completa
 
 ## Salida del Programa
 
@@ -99,47 +101,77 @@ El programa muestra los resultados en formato de tabla:
 
 ```
 ====================================================================================================
-LABORATORIO 8 - ANÁLISIS DE COMPLEJIDAD ALGORÍTMICA
-EJECUTANDO TODOS LOS EJERCICIOS CON LÍMITE DE 40 SEGUNDOS
+LABORATORIO 8 - ANALISIS DE COMPLEJIDAD ALGORITMICA
+EJECUTANDO TODOS LOS EJERCICIOS CON LIMITE DE 40 SEGUNDOS
 ====================================================================================================
 
 Ejercicio       Complejidad          Estado       Tiempo (s)   Error                         
 ----------------------------------------------------------------------------------------------------
-Ejercicio 1     O(n² log n)         ✅ Completado 15.23        N/A                           
-Ejercicio 2     O(n)                ✅ Completado 2.45         N/A                           
-Ejercicio 3     O(n²)               ✅ Completado 8.67         N/A                           
-Ejercicio 4     Búsqueda Lineal     ✅ Completado 3.12         N/A                           
-Ejercicio 5     Verificación Big-Oh ✅ Completado 1.89         N/A                           
+Ejercicio 1     O(n² log n)         Completado   15.23        N/A                           
+Ejercicio 2     O(n)                Completado   2.45         N/A                           
+Ejercicio 3     O(n²)               Completado   8.67         N/A                           
+Ejercicio 4     Busqueda Lineal     Completado   3.12         N/A                           
+Ejercicio 5     Verificacion Big-Oh Completado   1.89         N/A                           
 
-📊 TABLA COMPLETA DE RESULTADOS
+TABLA COMPLETA DE RESULTADOS
      Ejercicio         Complejidad      Estado  Tiempo (segundos)  Error
 0  Ejercicio 1       O(n² log n)  Completado             15.23    N/A
 1  Ejercicio 2               O(n)  Completado              2.45    N/A
 2  Ejercicio 3              O(n²)  Completado              8.67    N/A
-3  Ejercicio 4  Búsqueda Lineal  Completado              3.12    N/A
-4  Ejercicio 5  Verificación...  Completado              1.89    N/A
+3  Ejercicio 4  Busqueda Lineal  Completado              3.12    N/A
+4  Ejercicio 5  Verificacion...  Completado              1.89    N/A
 
-📈 ESTADÍSTICAS:
-   ✅ Ejercicios completados: 5/5
-   ⏰ Ejercicios con timeout: 0/5
-   ❌ Ejercicios con error: 0/5
-   ⏱️  Tiempo total de ejecución: 31.36 segundos
-   💾 Resultados guardados en: resultados_lab8_20241006_143022.csv
+ESTADISTICAS:
+   Ejercicios completados: 5/5
+   Ejercicios con timeout: 0/5
+   Ejercicios con error: 0/5
+   Tiempo total de ejecucion: 31.36 segundos
+   Resultados guardados en: resultados_lab8_20241006_143022.csv
 ```
 
-## Gráficas Generadas
+## Graficas Generadas
 
-El programa genera las siguientes gráficas:
-- `ejercicio1_grafica.png` - Tiempo vs tamaño de entrada (O(n² log n))
-- `ejercicio2_grafica.png` - Tiempo vs tamaño de entrada (O(n))
-- `ejercicio3_grafica.png` - Tiempo vs tamaño de entrada (O(n²))
-- `ejercicio4_grafica.png` - Comparación de casos de búsqueda lineal
-- `ejercicio5_grafica.png` - Comparación n³ vs n! vs operaciones reales
+El programa genera las siguientes graficas:
+- `ejercicio1_grafica.png` - Tiempo vs tamano de entrada (O(n² log n))
+- `ejercicio2_grafica.png` - Tiempo vs tamano de entrada (O(n))
+- `ejercicio3_grafica.png` - Tiempo vs tamano de entrada (O(n²))
+- `ejercicio4_grafica.png` - Comparacion de casos de busqueda lineal
+- `ejercicio5_grafica.png` - Comparacion n³ vs n! vs operaciones reales
 
 ## Archivos Generados
 
 - `resultados_lab8_AAAAMMDD_HHMMSS.csv` - Resultados exportados en formato CSV
-- `*.png` - Gráficas de cada ejercicio
+- `*.png` - Graficas de cada ejercicio
+
+## Formato de Tabla por Ejercicio
+
+Cada ejercicio muestra sus resultados en formato de tabla profesional:
+
+**Ejercicio 1-3:**
+```
+n          Tiempo (s)      Counter         Estado         
+------------------------------------------------------------
+1          0.000001        1              Completado     
+10         0.000012        45             Completado     
+100        0.001234        4950           Completado     
+```
+
+**Ejercicio 4:**
+```
+n          Mejor Caso      Caso Promedio  Peor Caso (final) Peor Caso (no existe)
+---------------------------------------------------------------------------------
+100        0.000001        0.000005       0.000010          0.000010
+1000       0.000001        0.000050       0.000100          0.000100
+```
+
+**Ejercicio 5:**
+```
+n     Elementos S   Operaciones  Tiempo (s)    n³      n!        
+----------------------------------------------------------------------
+3     3            3            0.000001      27      6          
+4     6            6            0.000002      64      24         
+5     10           10           0.000003      125     120        
+```
 
 ## Requisitos del Sistema
 

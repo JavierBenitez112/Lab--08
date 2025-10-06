@@ -53,17 +53,20 @@ def analizar_complejidad_ejercicio2():
 
 def medir_tiempos_ejercicio2():
     """
-    Mide los tiempos de ejecución para diferentes valores de n
+    Mide los tiempos de ejecucion para diferentes valores de n
     """
-    print("=== MEDICIÓN DE TIEMPOS - EJERCICIO 2 ===")
+    print("=== MEDICION DE TIEMPOS - EJERCICIO 2 ===")
     
     # Valores de n a probar
     valores_n = [1, 10, 100, 1000, 10000, 100000, 1000000]
     tiempos = []
     contadores = []
     
+    # Crear tabla de resultados en tiempo real
+    print(f"{'n':<10} {'Tiempo (s)':<15} {'Counter':<15} {'Estado':<15}")
+    print("-" * 60)
+    
     for n in valores_n:
-        print(f"Probando con n = {n}...")
         inicio = time.time()
         counter = function_ejercicio2(n)
         fin = time.time()
@@ -72,9 +75,8 @@ def medir_tiempos_ejercicio2():
         tiempos.append(tiempo_ejecucion)
         contadores.append(counter)
         
-        print(f"  Tiempo: {tiempo_ejecucion:.6f} segundos")
-        print(f"  Counter: {counter}")
-        print()
+        estado = "Completado" if tiempo_ejecucion < 40 else "Timeout"
+        print(f"{n:<10} {tiempo_ejecucion:<15.6f} {counter:<15} {estado:<15}")
     
     # Crear tabla de resultados
     df = pd.DataFrame({
@@ -83,36 +85,36 @@ def medir_tiempos_ejercicio2():
         'Counter': contadores
     })
     
-    print("=== TABLA DE RESULTADOS ===")
+    print("\n=== TABLA DE RESULTADOS ===")
     print(df.to_string(index=False))
     print()
     
-    # Crear gráfica
+    # Crear grafica
     plt.figure(figsize=(10, 6))
     plt.plot(valores_n, tiempos, 'ro-', linewidth=2, markersize=8)
-    plt.xlabel('Tamaño de entrada (n)')
-    plt.ylabel('Tiempo de ejecución (segundos)')
-    plt.title('Ejercicio 2: Tiempo vs Tamaño de entrada\nComplejidad: O(n)')
+    plt.xlabel('Tamano de entrada (n)')
+    plt.ylabel('Tiempo de ejecucion (segundos)')
+    plt.title('Ejercicio 2: Tiempo vs Tamano de entrada\nComplejidad: O(n)')
     plt.xscale('log')
     plt.yscale('log')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig('ejercicio2_grafica.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    plt.close()  # Cerrar la figura para liberar memoria
     
     return df
 
 def ejecutar_ejercicio2():
     """
-    Función principal para ejecutar el ejercicio 2
+    Funcion principal para ejecutar el ejercicio 2
     """
-    print("EJERCICIO 2 - ANÁLISIS DE COMPLEJIDAD ALGORÍTMICA")
+    print("EJERCICIO 2 - ANALISIS DE COMPLEJIDAD ALGORITMICA")
     print("=" * 60)
     
-    # Análisis de complejidad
+    # Analisis de complejidad
     analizar_complejidad_ejercicio2()
     
-    # Medición de tiempos
+    # Medicion de tiempos
     resultados = medir_tiempos_ejercicio2()
     
     return resultados

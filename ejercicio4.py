@@ -110,17 +110,19 @@ def demostrar_casos_busqueda_lineal():
 
 def medir_tiempos_diferentes_casos():
     """
-    Mide tiempos para diferentes tamaños de arreglo en cada caso
+    Mide tiempos para diferentes tamanos de arreglo en cada caso
     """
-    print("=== MEDICIÓN DE TIEMPOS PARA DIFERENTES CASOS ===")
+    print("=== MEDICION DE TIEMPOS PARA DIFERENTES CASOS ===")
     
     tamanos = [100, 1000, 10000, 100000]
     resultados = []
     
+    # Crear tabla de resultados en tiempo real
+    print(f"{'n':<10} {'Mejor Caso':<15} {'Caso Promedio':<15} {'Peor Caso (final)':<18} {'Peor Caso (no existe)':<20}")
+    print("-" * 85)
+    
     for n in tamanos:
-        print(f"Probando con n = {n}...")
-        
-        # Crear arreglo de tamaño n
+        # Crear arreglo de tamano n
         arr = list(range(1, n + 1))
         
         # Mejor caso: buscar el primer elemento
@@ -133,7 +135,7 @@ def medir_tiempos_diferentes_casos():
         busqueda_lineal(arr, n // 2)
         tiempo_promedio = time.time() - inicio
         
-        # Peor caso: buscar el último elemento
+        # Peor caso: buscar el ultimo elemento
         inicio = time.time()
         busqueda_lineal(arr, n)
         tiempo_peor = time.time() - inicio
@@ -151,52 +153,48 @@ def medir_tiempos_diferentes_casos():
             'Peor Caso (no existe)': tiempo_no_existe
         })
         
-        print(f"  Mejor caso: {tiempo_mejor:.8f}s")
-        print(f"  Caso promedio: {tiempo_promedio:.8f}s")
-        print(f"  Peor caso (final): {tiempo_peor:.8f}s")
-        print(f"  Peor caso (no existe): {tiempo_no_existe:.8f}s")
-        print()
+        print(f"{n:<10} {tiempo_mejor:<15.8f} {tiempo_promedio:<15.8f} {tiempo_peor:<18.8f} {tiempo_no_existe:<20.8f}")
     
     # Crear tabla de resultados
     df = pd.DataFrame(resultados)
-    print("=== TABLA DE RESULTADOS ===")
+    print("\n=== TABLA DE RESULTADOS ===")
     print(df.to_string(index=False))
     print()
     
-    # Crear gráfica
+    # Crear grafica
     plt.figure(figsize=(12, 8))
     plt.plot(tamanos, df['Mejor Caso'], 'go-', label='Mejor Caso O(1)', linewidth=2, markersize=8)
     plt.plot(tamanos, df['Caso Promedio'], 'bo-', label='Caso Promedio O(n)', linewidth=2, markersize=8)
     plt.plot(tamanos, df['Peor Caso (final)'], 'ro-', label='Peor Caso O(n)', linewidth=2, markersize=8)
     plt.plot(tamanos, df['Peor Caso (no existe)'], 'mo-', label='Peor Caso (no existe) O(n)', linewidth=2, markersize=8)
     
-    plt.xlabel('Tamaño del arreglo (n)')
-    plt.ylabel('Tiempo de ejecución (segundos)')
-    plt.title('Búsqueda Lineal: Comparación de Casos')
+    plt.xlabel('Tamano del arreglo (n)')
+    plt.ylabel('Tiempo de ejecucion (segundos)')
+    plt.title('Busqueda Lineal: Comparacion de Casos')
     plt.xscale('log')
     plt.yscale('log')
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig('ejercicio4_grafica.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    plt.close()  # Cerrar la figura para liberar memoria
     
     return df
 
 def ejecutar_ejercicio4():
     """
-    Función principal para ejecutar el ejercicio 4
+    Funcion principal para ejecutar el ejercicio 4
     """
-    print("EJERCICIO 4 - ANÁLISIS DE BÚSQUEDA LINEAL")
+    print("EJERCICIO 4 - ANALISIS DE BUSQUEDA LINEAL")
     print("=" * 60)
     
-    # Análisis teórico
+    # Analisis teorico
     analizar_casos_busqueda_lineal()
     
-    # Demostración práctica
+    # Demostracion practica
     demostrar_casos_busqueda_lineal()
     
-    # Medición de tiempos
+    # Medicion de tiempos
     resultados = medir_tiempos_diferentes_casos()
     
     return resultados
