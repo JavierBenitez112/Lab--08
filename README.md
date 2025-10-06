@@ -21,10 +21,18 @@ pip install -r requirements.txt
 
 ## Uso
 
-### Ejecutar todos los ejercicios:
+### Ejecutar todos los ejercicios automáticamente (con límite de 40 segundos por ejercicio):
 ```bash
 python main.py
 ```
+
+**Características de main.py:**
+- ✅ Ejecuta los 5 ejercicios secuencialmente
+- ✅ Límite de 40 segundos por ejercicio
+- ✅ Si un ejercicio excede el tiempo, pasa al siguiente automáticamente
+- ✅ Muestra resultados en formato de tabla
+- ✅ Guarda resultados en archivo CSV
+- ✅ Genera gráficas automáticamente
 
 ### Ejecutar un ejercicio específico:
 ```bash
@@ -77,9 +85,47 @@ python ejercicio5.py
 - ✅ Implementación práctica de cada algoritmo
 - ✅ Medición de tiempos de ejecución
 - ✅ Generación de gráficas comparativas
-- ✅ Tablas de resultados
-- ✅ Interfaz de menú interactiva
+- ✅ Tablas de resultados en formato profesional
+- ✅ **Límite de tiempo de 40 segundos por ejercicio**
+- ✅ **Timeout automático** - pasa al siguiente ejercicio si excede el tiempo
+- ✅ **Exportación a CSV** de todos los resultados
+- ✅ **Estadísticas completas** de ejecución
+- ✅ **Compatible con Windows** usando threading
 - ✅ Documentación completa
+
+## Salida del Programa
+
+El programa muestra los resultados en formato de tabla:
+
+```
+====================================================================================================
+LABORATORIO 8 - ANÁLISIS DE COMPLEJIDAD ALGORÍTMICA
+EJECUTANDO TODOS LOS EJERCICIOS CON LÍMITE DE 40 SEGUNDOS
+====================================================================================================
+
+Ejercicio       Complejidad          Estado       Tiempo (s)   Error                         
+----------------------------------------------------------------------------------------------------
+Ejercicio 1     O(n² log n)         ✅ Completado 15.23        N/A                           
+Ejercicio 2     O(n)                ✅ Completado 2.45         N/A                           
+Ejercicio 3     O(n²)               ✅ Completado 8.67         N/A                           
+Ejercicio 4     Búsqueda Lineal     ✅ Completado 3.12         N/A                           
+Ejercicio 5     Verificación Big-Oh ✅ Completado 1.89         N/A                           
+
+📊 TABLA COMPLETA DE RESULTADOS
+     Ejercicio         Complejidad      Estado  Tiempo (segundos)  Error
+0  Ejercicio 1       O(n² log n)  Completado             15.23    N/A
+1  Ejercicio 2               O(n)  Completado              2.45    N/A
+2  Ejercicio 3              O(n²)  Completado              8.67    N/A
+3  Ejercicio 4  Búsqueda Lineal  Completado              3.12    N/A
+4  Ejercicio 5  Verificación...  Completado              1.89    N/A
+
+📈 ESTADÍSTICAS:
+   ✅ Ejercicios completados: 5/5
+   ⏰ Ejercicios con timeout: 0/5
+   ❌ Ejercicios con error: 0/5
+   ⏱️  Tiempo total de ejecución: 31.36 segundos
+   💾 Resultados guardados en: resultados_lab8_20241006_143022.csv
+```
 
 ## Gráficas Generadas
 
@@ -89,6 +135,11 @@ El programa genera las siguientes gráficas:
 - `ejercicio3_grafica.png` - Tiempo vs tamaño de entrada (O(n²))
 - `ejercicio4_grafica.png` - Comparación de casos de búsqueda lineal
 - `ejercicio5_grafica.png` - Comparación n³ vs n! vs operaciones reales
+
+## Archivos Generados
+
+- `resultados_lab8_AAAAMMDD_HHMMSS.csv` - Resultados exportados en formato CSV
+- `*.png` - Gráficas de cada ejercicio
 
 ## Requisitos del Sistema
 
